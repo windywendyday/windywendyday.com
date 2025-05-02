@@ -1,95 +1,61 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import avatar from '../public/avatar.png'
+import background from '../public/background.png'
+import Image from "next/image";
+import Link from "next/link";
+import Navigation from "@/app/modules/navigation";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    const articles = [
+        { id: 1, title: "们社科女也有春天。。" },
+        { id: 2, title: "前端秋招指北" },
+        { id: 3, title: "八股（困难版）之JS" },
+        { id: 4, title: "八股（困难版）之CSS" },
+        { id: 5, title: "八股（困难版）之React" },
+        { id: 6, title: "八股（困难版）之Vue" },
+        { id: 7, title: "八股（困难版）之Webpack" },
+        { id: 8, title: "八股（困难版）之网络" },
+        { id: 9, title: "八股（困难版）之计算机基础" },
+        { id: 10, title: "八股（困难版）之手写代码和看输出" },
+        { id: 11, title: "八股（困难版）之浏览器" },
+        { id: 12, title: "八股（困难版）之性能优化" },
+        { id: 16, title: "最近从中感受到能量的一些句子" },
+    ]
+    return (
+        <div className={styles.app}>
+            <div className='top'>
+                <div>
+                    <Image src={background} alt={'background'} className={styles.background}/>
+                </div>
+                <div className={styles.info}>
+                    <div className={styles.info1}>
+                        <div>
+                            <Image className={styles.avatar} src={avatar} alt={'avatar'}/>
+                        </div>
+                        <div>
+                            <div className={styles.name}>windywendyday</div>
+                            <p className={styles.text}>前端开发🧸</p>
+                            <p className={styles.text}>本硕 HUST 传播学</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.main}>
+                <div style={{marginTop: '1.25rem'}}>
+                    <Navigation />
+                </div>
+                <div className={styles.list}>
+                    <ul>
+                        {
+                            articles.map(article => (
+                                <li key={article.id} className={styles.listItem}>
+                                    <Link href={`/articles/${article.id}`}> {article.title}</Link>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }

@@ -1,0 +1,97 @@
+.nav{
+    display: flex;
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .buttons{
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1.25rem;
+        border: 0 solid transparent;
+        background-color: transparent;
+        letter-spacing: 0.05rem;
+        font-family: "Times New Roman";
+    }
+    .buttons div{
+        width: 2rem;
+        height: 3px;
+        background-color: rgb(91, 40, 22);
+    }
+}
+.timeline{
+    display: flex;
+    flex-direction: column;
+    margin: 4rem 0;
+    position: relative;
+}
+.timelineHeader{
+    min-width: 4rem;
+    max-width: 8rem;
+    margin: 0 auto;
+    text-align: center;
+}
+.timelineHeaderText{
+    display: inline-flex;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    font-family: "Times New Roman", "sans-serif";
+    padding: 0.75rem;
+    line-height: 20px;
+    background-color: darkgreen;
+    font-size: 1rem;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.timelineItem{
+    width: 50%;
+}
+.timelineItem:before{
+    display: block;
+    content: "";
+    background-color: darkgreen;
+    width: 2px;
+    height: 3rem;
+    position: absolute;
+    right: 26.1rem;
+}
+.timelineItemRight{
+    text-align: left;
+    align-self: flex-end;
+    padding-top: 1.25rem;
+    padding-left: 2.25rem;
+    padding-bottom: 1rem;
+    /*border-left: 2px solid darkgreen;*/
+    /*margin-right: -0.5px;*/
+}
+.timelineItemLeft{
+    text-align: right;
+    align-self: flex-start;
+    padding-top: 1.25rem;
+    padding-right: 2.25rem;
+    padding-bottom: 1rem;
+    /*border-right: 2px solid darkgreen;*/
+    /*margin-left: 2.5px;*/
+}
+.contentRight{
+    text-align: left;
+    align-self: flex-end;
+}
+.contentLeft{
+    text-align: right;
+    align-self: flex-start;
+}
+.timelineItemText{
+    font-weight: bold;
+    font-size: 1rem;
+    text-shadow: 0.06rem 0.06rem 0.1rem lightgrey;
+    line-height: 1.6rem;
+}
+.timelineItemTextSmall{
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+}

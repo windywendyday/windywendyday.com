@@ -1,0 +1,27 @@
+.bg{
+    background-color: #FBF8F4FF;
+    height: 100vh;
+}
+.page{
+    display: grid;
+    grid-template-columns:15% 60% 25%;
+}
+.main{
+    padding-top: 4rem;
+    font-family: 'Times New Roman', 'Source Han Serif SC', serif;
+}
+.navigation{
+    /*margin-left: 10rem;*/
+    /*margin-top: 1.25rem;*/
+    padding-left: 10rem;
+    padding-top: 1.25rem;
+    align-self: flex-start;
+}
+.iconsAndEmail{
+    margin-top: 2rem;
+}
+.icons{
+    list-style: none;
+    display: flex;
+    margin-bottom: 1.5rem;
+}

@@ -1,0 +1,13 @@
+.article{
+    background-color: #FBF8F4FF;
+}
+.articleNav{
+    padding: 1.25rem 0 2rem 10rem;
+}
+.articleContent{
+    font-size: 1.05rem;
+    line-height: 2.5rem;
+    font-family: "Times New Roman", "Source Han Serif SC";
+    display: grid;
+    grid-template-columns: 12% 60% 28%;
+}
