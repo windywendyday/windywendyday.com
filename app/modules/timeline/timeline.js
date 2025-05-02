@@ -125,8 +125,8 @@ export default function Timeline() {
     return (
         <div className={styles.timeline}>
             {
-                timelines.map((item, index) => (
-                    <div key={item.id}>
+                timelines.map(item => (
+                    <div key={item.id} className={styles.timelineItem1}>
                         {item.header}
                         {item.item}
                     </div>

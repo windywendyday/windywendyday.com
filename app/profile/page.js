@@ -31,7 +31,7 @@ async function Profile() {
         {key: 2, text: '学文科的理科生'},
         {key: 3, text: 'HUST本硕'},
         {key: 4, text: '无孩养猫女'},
-        {key: 5, text: '星露谷500+小时'},
+        {key: 5, text: '星露谷900+小时'},
     ]
     const article = [
         {id: 13, title: 'Playlist🤍'},
