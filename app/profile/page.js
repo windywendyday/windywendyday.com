@@ -10,7 +10,7 @@ import html from "remark-html";
 import Timeline from "@/app/modules/timeline/timeline";
 
 const getPostData = async function () {
-    const fileContents = fs.readFileSync('/Users/tankeyi/WebstormProjects/mynewwebsite/app/articles/markdownArticles/text1.md', 'utf8');
+    const fileContents = fs.readFileSync('../articles/markdownArticles/text1.md', 'utf8');
 
     const matterResult = matter(fileContents);
 
