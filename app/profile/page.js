@@ -8,9 +8,11 @@ import matter from "gray-matter";
 import {remark} from "remark";
 import html from "remark-html";
 import Timeline from "@/app/modules/timeline/timeline";
+import path from 'path';
 
 const getPostData = async function () {
-    const fileContents = fs.readFileSync('../articles/markdownArticles/text1.md', 'utf8');
+    const filePath = path.join(process.cwd(), 'app/articles/markdownArticles/text1.md');
+    const fileContents = fs.readFileSync(filePath, 'utf8');
 
     const matterResult = matter(fileContents);
 
