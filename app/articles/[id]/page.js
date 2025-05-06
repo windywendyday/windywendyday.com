@@ -1,13 +1,26 @@
 import { notFound } from 'next/navigation';
 import styles from './page.module.css';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { remark } from 'remark';
+import html from 'remark-html';
 
 async function getArticle(id) {
     try {
-        const filePath = `app/articles/markdownArticles/article${id}.md`;
-        const fileContents = await import(`../../articles/markdownArticles/article${id}.md`);
+        const filePath = path.join(process.cwd(), 'app/articles/markdownArticles', `article${id}.md`);
+        const fileContents = fs.readFileSync(filePath, 'utf8');
+        
+        const matterResult = matter(fileContents);
+        const processedContent = await remark()
+            .use(html)
+            .process(matterResult.content);
+        const contentHtml = processedContent.toString();
+
         return {
             id,
-            content: fileContents.default
+            contentHtml,
+            ...matterResult.data
         };
     } catch (error) {
         return null;
@@ -15,7 +28,8 @@ async function getArticle(id) {
 }
 
 export default async function ArticlePage({ params }) {
-    const article = await getArticle(params.id);
+    const { id } = await params;
+    const article = await getArticle(id);
     
     if (!article) {
         notFound();
@@ -24,7 +38,7 @@ export default async function ArticlePage({ params }) {
     return (
         <div className={styles.container}>
             <article className={styles.article}>
-                {article.content}
+                <div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />
             </article>
         </div>
     );
